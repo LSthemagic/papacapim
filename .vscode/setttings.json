@@ -1,0 +1,56 @@
+{
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.wordBasedSuggestions": "off",
+    "editor.inlineSuggest.enabled": true,
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.snippetSuggestions": "top",
+
+    "editor.hover.enabled": true,
+    "editor.parameterHints.enabled": true,
+
+    "dart.completeFunctionCalls": true,
+    "dart.autoImportCompletions": true,
+    "dart.showTodos": true,
+
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "[dart]": {
+        "editor.defaultFormatter": "Dart-Code.dart-code",
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ]
+    },
+
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+        "source.fixAll": "always"
+    },
+
+    "dart.flutterHotReloadOnSave": "always",
+    "dart.openDevTools": "flutter",
+
+    "explorer.compactFolders": false,
+
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "editor.suggest.showSnippets": true,
+    "editor.suggest.showWords": true,
+    "editor.suggest.showClasses": true,
+    "editor.suggest.showFunctions": true,
+    "editor.suggest.showMethods": true,
+    "editor.suggest.showProperties": true,
+    "editor.suggest.showVariables": true,
+    "editor.suggest.showKeywords": true,
+
+    "dart.showDartDeveloperLogs": false,
+    "dart.closingLabels": true,
+    "dart.previewFlutterUiGuides": true
+}
