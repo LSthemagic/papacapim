@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:papacapim/components/AppBar.dart';
 import 'package:papacapim/features/auth/Login.dart';
-import 'package:papacapim/features/home/home.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -10,7 +10,7 @@ class RegisterPage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
+        appBar: CustomAppBar(
           title: Text("Criar Conta"),
           actions: [
             TextButton(onPressed: () {
@@ -105,12 +105,12 @@ class RegisterPage extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const HomePage(),
-                          ),
-                        );
+                        // Navigator.pushReplacement(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (_) => const HomePage(),
+                        //   ),
+                        // );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple,

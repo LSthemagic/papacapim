@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:papacapim/components/AppBar.dart';
 import 'package:papacapim/features/auth/register.dart';
+import 'package:papacapim/features/home/home.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -9,7 +11,7 @@ class LoginPage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
+        appBar: CustomAppBar(
           title: Title(
             color: Colors.deepPurple,
             child: Column(
@@ -68,7 +70,7 @@ class LoginPage extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => const RegisterPage(),
+                            builder: (_) => const HomePage(),
                           ),
                         );
                       },
