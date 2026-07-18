@@ -15,16 +15,17 @@ class FooterCard extends StatelessWidget {
     return NavigationBar(
       selectedIndex: currentIndex,
       onDestinationSelected: onDestinationSelected,
+      indicatorColor: Colors.transparent,
       destinations: const [
         NavigationDestination(
           icon: Icon(Icons.home_outlined),
-          selectedIcon: Icon(Icons.home),
+          selectedIcon: Icon(Icons.home, color: Colors.deepPurpleAccent, ),
           label: 'Início',
         ),
         NavigationDestination(
-          icon: Icon(Icons.person_outline),
-          selectedIcon: Icon(Icons.person),
-          label: 'Perfil',
+          icon: Icon(Icons.add),
+          selectedIcon: Icon(Icons.add, color: Colors.deepPurpleAccent,),
+          label: 'Publicar',
         ),
       ],
     );
