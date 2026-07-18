@@ -3,6 +3,7 @@ import 'package:papacapim/components/AppBar.dart';
 import 'package:papacapim/components/Footer.dart';
 import 'package:papacapim/components/PostCard.dart';
 import 'package:papacapim/features/auth/Login.dart';
+import 'package:papacapim/features/post/details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -91,7 +92,19 @@ class _HomePageState extends State<HomePage> {
               child: ListView.builder(
                 itemCount: 2,
                 itemBuilder: (context, index) {
-                  return PostCard();
+                  return PostCard(
+                    onTap: () {
+                      print("Clicou no post $index");
+
+                     // ou navegar
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const DetailsPostPage(),
+                        ),
+                      );
+                    },
+                  );
                 },
               ),
             ),
