@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:papacapim/components/AppBar.dart';
 import 'package:papacapim/features/auth/register.dart';
 import 'package:papacapim/features/home/home.dart';
-import 'package:papacapim/features/navigation/navigation.dart';
+import 'package:papacapim/navigation/navigation.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
