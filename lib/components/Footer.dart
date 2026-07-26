@@ -19,7 +19,7 @@ class FooterCard extends StatelessWidget {
       destinations: const [
         NavigationDestination(
           icon: Icon(Icons.home_outlined),
-          selectedIcon: Icon(Icons.home, color: Colors.deepPurpleAccent),
+          selectedIcon: Icon(Icons.home_outlined, color: Colors.deepPurpleAccent),
           label: 'Início',
         ),
         NavigationDestination(
