@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:papacapim/components/Footer.dart';
 import 'package:papacapim/features/home/home.dart';
 import 'package:papacapim/features/post/post.dart';
+import 'package:papacapim/features/search/search.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -15,7 +16,8 @@ class _NavigationPageState extends State<NavigationPage> {
 
   final pages = const [
     HomePage(),
-    PostPage()
+    SearchPage(),
+    PostPage(),
   ];
 
   @override
