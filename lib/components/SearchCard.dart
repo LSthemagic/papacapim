@@ -56,7 +56,7 @@ class SearchCard extends StatelessWidget {
                     bottomRight: Radius.circular(8),
                     topRight: Radius.circular(8),
                   ),
-                  side: BorderSide(color: Colors.blueGrey.shade50),
+                  side: BorderSide(color: Colors.grey.shade300),
                 ),
               ),
               child: const Text(

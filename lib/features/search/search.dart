@@ -8,20 +8,49 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final border = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(color: Colors.grey.shade300),
+    );
     return Scaffold(
       appBar: CustomAppBar(title: Text("Buscar")),
-      body:ListView.builder(
-          itemCount: 4,
-          itemBuilder: (context, index) {
-            return SearchCard(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const DetailsPostPage()),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Buscar por nome',
+                border: border,
+                filled: true,
+                fillColor: Colors.white,
+                prefixIcon: Icon(Icons.search, size: 20,),
+                prefixIconColor: Colors.grey.shade600,
+                enabledBorder: border,
+                disabledBorder: border,
+                focusedBorder: border,
+                contentPadding: EdgeInsets.symmetric(horizontal: 8),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 4,
+              itemBuilder: (context, index) {
+                return SearchCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const DetailsPostPage(),
+                      ),
+                    );
+                  },
                 );
               },
-            );
-          },
+            ),
+          ),
+        ],
       ),
     );
   }
