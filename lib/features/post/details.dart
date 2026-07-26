@@ -22,9 +22,7 @@ class DetailsPostPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          PostCard(
-            showComments: false,
-          ),
+          PostCard(showComments: false),
 
           const SizedBox(height: 20),
 
@@ -39,6 +37,50 @@ class DetailsPostPage extends StatelessWidget {
             },
           ),
         ],
+      ),
+      bottomSheet: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [BoxShadow(blurRadius: 8, color: Colors.black12)],
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: const InputDecoration(
+                      hintText: 'Escreva uma resposta...',
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(width: 12),
+
+                SizedBox(
+                  width: 120,
+                  child: FilledButton(
+                    onPressed: () {},
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Colors.deepPurple,
+                      minimumSize: const Size(100, 48),
+                    ),
+                    child: const Text('Enviar'),
+                  ),
+                ),
+
+                const SizedBox(width: 8),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

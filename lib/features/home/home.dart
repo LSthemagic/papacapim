@@ -94,9 +94,6 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return PostCard(
                     onTap: () {
-                      print("Clicou no post $index");
-
-                     // ou navegar
                       Navigator.push(
                         context,
                         MaterialPageRoute(
