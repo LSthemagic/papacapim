@@ -29,7 +29,7 @@ class PostCard extends StatelessWidget {
                   children: [
                     const CircleAvatar(
                       radius: 18,
-                      backgroundColor: Color(0xFFE9DDFF),
+                      backgroundColor: Color.fromARGB(255, 228, 215, 253),
                     ),
 
                     const SizedBox(width: 10),

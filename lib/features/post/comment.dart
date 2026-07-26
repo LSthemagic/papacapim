@@ -22,7 +22,7 @@ class CommentCard extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 18,
-                  backgroundColor: Color(0xFFE9DDFF),
+                  backgroundColor: Color.fromARGB(255, 228, 215, 253),
                   child: Text("CL"),
                 ),
 
