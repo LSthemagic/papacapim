@@ -43,13 +43,13 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    "Nome de usuário",
+                    "Login",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
                     decoration: const InputDecoration(
-                      hintText: "Digite seu nome de usuário",
+                      hintText: "seu_login",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
