@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:papacapim/components/app_bar.dart';
 import 'package:papacapim/features/auth/login.dart';
+import 'package:papacapim/navigation/navigation.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -90,12 +91,12 @@ class RegisterPage extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (_) => const HomePage(),
-                        //   ),
-                        // );
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const NavigationPage(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple,
