@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:papacapim/components/AppBar.dart';
-import 'package:papacapim/features/auth/Login.dart';
+import 'package:papacapim/components/app_bar.dart';
+import 'package:papacapim/features/auth/login.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});

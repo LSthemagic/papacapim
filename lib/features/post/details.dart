@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:papacapim/components/PostCard.dart';
-import 'package:papacapim/features/home/home.dart';
+import 'package:papacapim/components/post_card.dart';
 import 'package:papacapim/features/post/comment.dart';
 
 class DetailsPostPage extends StatelessWidget {

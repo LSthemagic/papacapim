@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:papacapim/components/AppBar.dart';
+import 'package:papacapim/components/app_bar.dart';
 import 'package:papacapim/features/home/home.dart';
 
 class PostPage extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:papacapim/components/AppBar.dart';
-import 'package:papacapim/components/SearchCard.dart';
+import 'package:papacapim/components/app_bar.dart';
+import 'package:papacapim/components/search_card.dart';
 import 'package:papacapim/features/post/details.dart';
 
 class SearchPage extends StatelessWidget {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:papacapim/components/AppBar.dart';
-import 'package:papacapim/components/Footer.dart';
-import 'package:papacapim/components/PostCard.dart';
-import 'package:papacapim/features/auth/Login.dart';
+import 'package:papacapim/components/app_bar.dart';
+import 'package:papacapim/components/post_card.dart';
+import 'package:papacapim/features/auth/login.dart';
 import 'package:papacapim/features/post/details.dart';
 
 class HomePage extends StatefulWidget {
