@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:papacapim/components/footer.dart';
 import 'package:papacapim/features/home/home.dart';
 import 'package:papacapim/features/post/post.dart';
+import 'package:papacapim/features/profile/profile.dart';
 import 'package:papacapim/features/search/search.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -18,6 +19,7 @@ class _NavigationPageState extends State<NavigationPage> {
     HomePage(),
     SearchPage(),
     PostPage(),
+    ProfilePage()
   ];
 
   @override
