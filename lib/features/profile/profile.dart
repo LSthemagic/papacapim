@@ -55,7 +55,7 @@ class ProfilePage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     color: Colors.black,
                   ),
-                  child: Text("12 publicações"),
+                  child: Text("12 seguindo"),
                 ),
                 const Padding(padding: EdgeInsetsGeometry.all(8)),
                 DefaultTextStyle(
