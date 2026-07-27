@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:papacapim/components/app_bar.dart';
 
-class EditPage extends StatelessWidget {
-  const EditPage({super.key});
+class EditProfilePage extends StatelessWidget {
+  const EditProfilePage({super.key});
 
   @override
   Widget build(BuildContext context){
