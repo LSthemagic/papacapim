@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PostCard extends StatelessWidget {
+class PostCard extends StatefulWidget {
   const PostCard({
     super.key,
     this.onTap,
@@ -13,13 +13,20 @@ class PostCard extends StatelessWidget {
   final EdgeInsetsGeometry padding;
 
   @override
+  State<PostCard> createState() => _PostCardState();
+}
+
+class _PostCardState extends State<PostCard> {
+  bool liked = false;
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding,
+      padding: widget.padding,
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: onTap,
+          onTap: widget.onTap,
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.all(12),
@@ -73,20 +80,30 @@ class PostCard extends StatelessWidget {
 
                 Row(
                   children: [
-                    Icon(
-                      Icons.favorite_border,
-                      size: 16,
-                      color: Colors.grey.shade600,
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          liked = !liked;
+                        });
+                      },
+                      icon: Icon(
+                        liked ? Icons.favorite : Icons.favorite_border,
+                        size: 16,
+                        color: liked ? Colors.red : Colors.grey.shade600,
+                      ),
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      "12",
+                      liked ? "13" : "12",
                       style: TextStyle(
                         color: Colors.grey.shade600,
                         fontSize: 12,
                       ),
                     ),
-                    if (showComments) ...[
+                    if (widget.showComments) ...[
                       const SizedBox(width: 20),
 
                       Icon(
