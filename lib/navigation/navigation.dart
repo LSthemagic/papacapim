@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:papacapim/components/Footer.dart';
+import 'package:papacapim/components/footer.dart';
 import 'package:papacapim/features/home/home.dart';
 import 'package:papacapim/features/post/post.dart';
 import 'package:papacapim/features/search/search.dart';
