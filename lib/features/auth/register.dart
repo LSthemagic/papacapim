@@ -57,20 +57,6 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    "Email",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: "Digite seu email",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
                     "Senha",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
