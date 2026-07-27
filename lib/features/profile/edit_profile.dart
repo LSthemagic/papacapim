@@ -1,9 +1,26 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:papacapim/components/app_bar.dart';
 import 'package:papacapim/features/auth/login.dart';
 
-class EditProfilePage extends StatelessWidget {
+class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
+
+  @override
+  State<EditProfilePage> createState() => _EditProfilePageState();
+}
+
+class _EditProfilePageState extends State<EditProfilePage> {
+  File? _image;
+
+  Future<void> _pickImage(ImageSource source) async {
+    final picked = await ImagePicker().pickImage(source: source);
+    if (picked != null) {
+      setState(() => _image = File(picked.path));
+    }
+  }
 
   void _showPhotoOptions(BuildContext context) {
     showDialog(
@@ -15,18 +32,14 @@ class EditProfilePage extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.pop(ctx);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Selecionar da galeria (em breve)")),
-              );
+              _pickImage(ImageSource.gallery);
             },
             child: const Text("Galeria"),
           ),
           TextButton(
             onPressed: () {
               Navigator.pop(ctx);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Tirar foto (em breve)")),
-              );
+              _pickImage(ImageSource.camera);
             },
             child: const Text("Câmera"),
           ),
@@ -62,10 +75,13 @@ class EditProfilePage extends StatelessWidget {
                         Center(
                           child: Column(
                             children: [
-                              const CircleAvatar(
+                              CircleAvatar(
                                 radius: 40,
                                 backgroundColor: Color.fromARGB(255, 228, 215, 253),
-                                child: Text("RS", style: TextStyle(fontSize: 24)),
+                                backgroundImage: _image != null ? FileImage(_image!) : null,
+                                child: _image == null
+                                    ? const Text("RS", style: TextStyle(fontSize: 24))
+                                    : null,
                               ),
                               const SizedBox(height: 8),
                               TextButton.icon(
