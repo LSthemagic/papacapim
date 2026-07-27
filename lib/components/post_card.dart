@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard({super.key, this.onTap, this.showComments = true});
+  const PostCard({
+    super.key,
+    this.onTap,
+    this.showComments = true,
+    this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+  });
 
   final VoidCallback? onTap;
   final bool showComments;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: padding,
       child: Material(
         color: Colors.transparent,
         child: InkWell(
