@@ -8,7 +8,7 @@ class SearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 13, right: 12, top: 8, bottom: 8),
+      padding: const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(

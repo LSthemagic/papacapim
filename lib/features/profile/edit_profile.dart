@@ -19,7 +19,7 @@ class EditProfilePage extends StatelessWidget {
         ),
         body: Center(
           child: SizedBox(
-            width: 400,
+            width: 375,
             height: 700,
             child: Form(
               child: Column(
@@ -32,7 +32,7 @@ class EditProfilePage extends StatelessWidget {
                   const SizedBox(height: 8),
                   TextFormField(
                     decoration: const InputDecoration(
-                      hintText: "Digite seu nome",
+                      hintText: "Railan Santana",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
