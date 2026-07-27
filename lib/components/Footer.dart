@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class FooterCard extends StatelessWidget {
@@ -20,7 +19,10 @@ class FooterCard extends StatelessWidget {
       destinations: const [
         NavigationDestination(
           icon: Icon(Icons.home_outlined),
-          selectedIcon: Icon(Icons.home_outlined, color: Colors.deepPurpleAccent),
+          selectedIcon: Icon(
+            Icons.home_outlined,
+            color: Colors.deepPurpleAccent,
+          ),
           label: 'Início',
         ),
         NavigationDestination(
@@ -32,6 +34,11 @@ class FooterCard extends StatelessWidget {
           icon: Icon(Icons.add),
           selectedIcon: Icon(Icons.add, color: Colors.deepPurpleAccent),
           label: 'Publicar',
+        ),
+        NavigationDestination(
+          icon: Icon(Icons.person_outline_rounded),
+          selectedIcon: Icon(Icons.person_outline_rounded, color: Colors.deepPurpleAccent),
+          label: 'Perfil',
         ),
       ],
     );
