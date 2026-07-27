@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:papacapim/components/app_bar.dart';
 import 'package:papacapim/components/post_card.dart';
-import 'package:papacapim/features/home/home.dart';
+import 'package:papacapim/features/profile/edit.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -14,9 +14,9 @@ class ProfilePage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const HomePage()),
+                MaterialPageRoute(builder: (_) => const EditPage()),
               );
             },
             child: const Text("Editar"),
