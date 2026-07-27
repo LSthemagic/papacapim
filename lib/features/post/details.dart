@@ -2,38 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:papacapim/components/post_card.dart';
 import 'package:papacapim/features/post/comment.dart';
 
-class DetailsPostPage extends StatelessWidget {
+class DetailsPostPage extends StatefulWidget {
   const DetailsPostPage({super.key});
+
+  @override
+  State<DetailsPostPage> createState() => _DetailsPostPageState();
+}
+
+class _DetailsPostPageState extends State<DetailsPostPage> {
+  final _replyController = TextEditingController();
+
+  @override
+  void dispose() {
+    _replyController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Postagem",
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
       body: Column(
         children: [
-          PostCard(showComments: false),
+          const PostCard(showComments: false),
 
           const SizedBox(height: 20),
 
           const Text("Respostas"),
 
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 2,
-            itemBuilder: (_, index) {
-              return CommentCard();
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: 2,
+              itemBuilder: (_, index) => const CommentCard(),
+            ),
           ),
         ],
       ),
@@ -53,6 +60,7 @@ class DetailsPostPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    controller: _replyController,
                     decoration: const InputDecoration(
                       hintText: 'Escreva uma resposta...',
                       border: InputBorder.none,
@@ -66,7 +74,13 @@ class DetailsPostPage extends StatelessWidget {
                 SizedBox(
                   width: 120,
                   child: FilledButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (_replyController.text.trim().isEmpty) return;
+                      _replyController.clear();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Resposta enviada!")),
+                      );
+                    },
                     style: FilledButton.styleFrom(
                       backgroundColor: Colors.deepPurple,
                       minimumSize: const Size(100, 48),
