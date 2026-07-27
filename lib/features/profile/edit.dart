@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:papacapim/components/app_bar.dart';
-import 'package:papacapim/features/auth/login.dart';
 
 class EditPage extends StatelessWidget {
   const EditPage({super.key});
@@ -11,14 +10,11 @@ class EditPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: CustomAppBar(
-          title: Text("Criar Conta"),
+          title: Text("Editar Perfil"),
           actions: [
             TextButton(onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (_) => const LoginPage())
-              );
-            }, child: const Text("Entrar"))
+              Navigator.pop(context);
+            }, child: const Text("Cancelar"))
           ],
         ),
         body: Center(

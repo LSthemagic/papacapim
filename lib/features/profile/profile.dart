@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const EditPage()),
               );
