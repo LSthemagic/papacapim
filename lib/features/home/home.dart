@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
 
             Expanded(
               child: ListView.builder(
-                itemCount: 2,
+                itemCount: allActive ? 3 : 1,
                 itemBuilder: (context, index) {
                   return PostCard(
                     onTap: () {
