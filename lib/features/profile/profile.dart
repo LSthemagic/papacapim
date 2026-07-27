@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:papacapim/components/app_bar.dart';
 import 'package:papacapim/components/post_card.dart';
-import 'package:papacapim/features/profile/edit.dart';
+import 'package:papacapim/features/profile/edit_profile.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
