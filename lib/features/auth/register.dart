@@ -22,9 +22,8 @@ class RegisterPage extends StatelessWidget {
           ],
         ),
         body: Center(
-          child: SizedBox(
-            width: 400,
-            height: 700,
+          child: Container(
+            padding: const EdgeInsets.all(12.0),
             child: Form(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
