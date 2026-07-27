@@ -5,8 +5,22 @@ import 'package:papacapim/components/search_card.dart';
 import 'package:papacapim/features/post/details.dart';
 import 'package:papacapim/features/profile/profile.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
+
+  @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  final _controller = TextEditingController();
+  String _query = '';
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +35,8 @@ class SearchPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
+              controller: _controller,
+              onChanged: (v) => setState(() => _query = v.toLowerCase()),
               decoration: InputDecoration(
                 hintText: 'Buscar por nome',
                 border: border,
@@ -38,32 +54,14 @@ class SearchPage extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
-                ...List.generate(
-                  2,
-                  (index) => SearchCard(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const ProfilePage(),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                ...List.generate(
-                  2,
-                  (index) => PostCard(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const DetailsPostPage(),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                if ("maria@maria".contains(_query) || _query.isEmpty)
+                  ...List.generate(2, (index) => SearchCard(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfilePage())),
+                  )),
+                if ("hoje hoje comecei meu primeiro projeto com flutter. muito feliz!".contains(_query) || _query.isEmpty)
+                  ...List.generate(2, (index) => PostCard(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const DetailsPostPage())),
+                  )),
               ],
             ),
           ),
