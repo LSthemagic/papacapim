@@ -3,25 +3,36 @@ import 'package:papacapim/components/app_bar.dart';
 import 'package:papacapim/components/post_card.dart';
 import 'package:papacapim/features/profile/edit_profile.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key, this.isAuthor = false});
+  final bool isAuthor;
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  bool seguindo = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
         title: Text("Perfil"),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const EditProfilePage()),
-              );
-            },
-            child: const Text("Editar"),
-          ),
-        ],
+        actions: widget.isAuthor
+            ? [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const EditProfilePage(),
+                      ),
+                    );
+                  },
+                  child: const Text("Editar"),
+                ),
+              ]
+            : [],
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -34,18 +45,41 @@ class ProfilePage extends StatelessWidget {
               child: Text("RS"),
             ),
             const Padding(padding: EdgeInsetsGeometry.all(8)),
-            const DefaultTextStyle(
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-              child: Text("Railan Santana"),
+            Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const DefaultTextStyle(
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                      child: Text("Railan Santana"),
+                    ),
+                    Text(
+                      "@railan_santanaa",
+                      style: TextStyle(
+                        color: Colors.grey.shade600,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                if (!widget.isAuthor)
+                  FilledButton(
+                    onPressed: () {
+                      setState(() {
+                        seguindo = !seguindo;
+                      });
+                    },
+                    child: Text(seguindo ? 'Seguindo' : 'Seguir'),
+                  ),
+              ],
             ),
-            Text(
-              "@railan_santanaa",
-              style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
-            ),
+
             const Padding(padding: EdgeInsetsGeometry.all(8)),
             Row(
               children: [
@@ -73,15 +107,12 @@ class ProfilePage extends StatelessWidget {
                 itemCount: 1,
                 itemBuilder: (context, index) {
                   return PostCard(
-                    onTap: () {
-                      
-                    },
+                    onTap: () {},
                     padding: EdgeInsetsGeometry.directional(top: 16),
                   );
-                } 
+                },
               ),
-            
-            )
+            ),
           ],
         ),
       ),

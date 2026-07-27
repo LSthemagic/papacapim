@@ -19,7 +19,7 @@ class _NavigationPageState extends State<NavigationPage> {
     HomePage(),
     SearchPage(),
     PostPage(),
-    ProfilePage()
+    ProfilePage(isAuthor: true,)
   ];
 
   @override
