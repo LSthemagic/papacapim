@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:papacapim/components/app_bar.dart';
 import 'package:papacapim/features/home/home.dart';
+import 'package:papacapim/navigation/navigation.dart';
 
 class PostPage extends StatelessWidget {
   const PostPage({super.key});
@@ -36,7 +37,15 @@ class PostPage extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (_) => NavigationPage()),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Postagem publicada!")),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 48),
                   backgroundColor: Colors.deepPurple,
