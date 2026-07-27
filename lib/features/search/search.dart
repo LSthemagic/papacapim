@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:papacapim/components/app_bar.dart';
+import 'package:papacapim/components/post_card.dart';
 import 'package:papacapim/components/search_card.dart';
 import 'package:papacapim/features/post/details.dart';
+import 'package:papacapim/features/profile/profile.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -24,7 +26,7 @@ class SearchPage extends StatelessWidget {
                 border: border,
                 filled: true,
                 fillColor: Colors.white,
-                prefixIcon: Icon(Icons.search, size: 20,),
+                prefixIcon: Icon(Icons.search, size: 20),
                 prefixIconColor: Colors.grey.shade600,
                 enabledBorder: border,
                 disabledBorder: border,
@@ -34,20 +36,35 @@ class SearchPage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return SearchCard(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const DetailsPostPage(),
-                      ),
-                    );
-                  },
-                );
-              },
+            child: ListView(
+              children: [
+                ...List.generate(
+                  2,
+                  (index) => SearchCard(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const ProfilePage(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                ...List.generate(
+                  2,
+                  (index) => PostCard(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const DetailsPostPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],
