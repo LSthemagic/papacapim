@@ -12,6 +12,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   bool seguindo = false;
+  final List<int> _postIds = [1];
 
   @override
   Widget build(BuildContext context) {
@@ -104,11 +105,23 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: 1,
+                itemCount: _postIds.length,
                 itemBuilder: (context, index) {
                   return PostCard(
+                    isAuthor: widget.isAuthor,
                     onTap: () {},
                     padding: EdgeInsetsGeometry.directional(top: 16),
+                    onDelete: () {
+                      setState(() {
+                        _postIds.removeAt(index);
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Postagem excluída"),
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
+                    },
                   );
                 },
               ),

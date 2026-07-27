@@ -4,11 +4,15 @@ class PostCard extends StatefulWidget {
   const PostCard({
     super.key,
     this.onTap,
+    this.onDelete,
+    this.isAuthor = false,
     this.showComments = true,
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
   });
 
   final VoidCallback? onTap;
+  final VoidCallback? onDelete;
+  final bool isAuthor;
   final bool showComments;
   final EdgeInsetsGeometry padding;
 
@@ -18,6 +22,31 @@ class PostCard extends StatefulWidget {
 
 class _PostCardState extends State<PostCard> {
   bool liked = false;
+
+  Future<void> _confirmDelete(BuildContext context) async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text("Excluir postagem"),
+        content: const Text("Tem certeza que deseja excluir esta postagem?"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text("Cancelar"),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: const Text("Excluir"),
+          ),
+        ],
+      ),
+    );
+
+    if (confirm == true && widget.onDelete != null) {
+      widget.onDelete!();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,25 +76,41 @@ class _PostCardState extends State<PostCard> {
 
                     const SizedBox(width: 10),
 
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "Maria Silva",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Maria Silva",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "@maria",
-                          style: TextStyle(
-                            color: Colors.grey.shade600,
-                            fontSize: 11,
+                          Text(
+                            "@maria",
+                            style: TextStyle(
+                              color: Colors.grey.shade600,
+                              fontSize: 11,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
+
+                    if (widget.isAuthor)
+                      IconButton(
+                        onPressed: () => _confirmDelete(context),
+                        icon: Icon(
+                          Icons.delete_outline,
+                          size: 18,
+                          color: Colors.grey.shade600,
+                        ),
+                        visualDensity: VisualDensity.compact,
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        tooltip: "Excluir postagem",
+                      ),
                   ],
                 ),
 
