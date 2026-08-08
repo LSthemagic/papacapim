@@ -4,8 +4,6 @@ import 'package:papacapim/core/utils/app_snackbar.dart';
 import 'package:papacapim/core/validators/validators.dart';
 import 'package:papacapim/features/auth/controllers/register_controller.dart';
 import 'package:papacapim/features/auth/login.dart';
-import 'package:papacapim/navigation/navigation.dart';
-
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
@@ -34,12 +32,20 @@ class _RegisterPageState extends State<RegisterPage> {
 
     if (!mounted) return;
 
-    success
-        ? AppSnackBar.show(context, "Cadastro Realizado!")
-        : AppSnackBar.show(
-            context,
-            registerController.error ?? 'Erro ao cadastrar',
-          );
+    if (success) {
+      AppSnackBar.show(context, "Cadastro Realizado!");
+      await Future.delayed(const Duration(seconds: 1));
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const LoginPage()),
+      );
+    } else {
+      AppSnackBar.show(
+        context,
+        registerController.error ?? 'Erro ao cadastrar',
+      );
+    }
   }
 
   @override
