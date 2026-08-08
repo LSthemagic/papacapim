@@ -8,9 +8,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         appBar: CustomAppBar(
           title: Title(
             color: Colors.deepPurple,
@@ -117,7 +115,6 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
     );
   }
 }

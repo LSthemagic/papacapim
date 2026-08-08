@@ -10,7 +10,7 @@ class AuthService {
         .join('\n');
   }
 
-  return data.Exception.toString();
+  return data.toString();
 }
 
   Future<void> register({
