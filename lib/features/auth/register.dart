@@ -133,7 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
-                      validator: Validators.required,
+                      validator: Validators.password,
                       controller: passwordController,
                       obscureText: true,
                       decoration: const InputDecoration(
@@ -150,7 +150,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
-                      validator: Validators.required,
+                      validator: Validators.password,
                       controller: passwordConfirmationController,
                       obscureText: true,
                       decoration: const InputDecoration(
