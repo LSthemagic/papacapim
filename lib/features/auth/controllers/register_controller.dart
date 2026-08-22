@@ -17,6 +17,7 @@ class RegisterController extends ChangeNotifier {
     error = null;
     notifyListeners();
     try {
+      
       await _authService.register(
         login: login,
         name: name,
@@ -26,6 +27,7 @@ class RegisterController extends ChangeNotifier {
       return true;
     } catch (e) {
       error = e.toString();
+      print(error);
       return false;
     } finally {
       isLoading = false;
