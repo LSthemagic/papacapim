@@ -19,4 +19,16 @@ class Validators {
     return null;
   }
 
+  static String? password(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Password obrigatório';
+    }
+
+    if (value.length < 6) {
+      return 'O password deve ter pelo menos 6 caracteres';
+    }
+
+    return null;
+  }
+
 }
